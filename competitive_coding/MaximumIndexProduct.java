@@ -1,14 +1,14 @@
-package hackerrank;
+package cp;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
 // https://www.hackerrank.com/challenges/find-maximum-index-product/problem
 public class MaximumIndexProduct {
 
-	static long solve(int[] arr) {
+    static long solve(int[] arr) {
         // data along with index
         class Data {
             int data;
@@ -73,8 +73,7 @@ public class MaximumIndexProduct {
         // find max index product
         long max = Long.MIN_VALUE;
         for(int i = 0; i < l; i++) {
-            //System.out.println(i + " => " + left[i] + ", " + right[i]);
-            long p = left[i] * right[i];
+             long p = left[i] * right[i];
             if(p > max) {
                 max = p;
             }
@@ -82,24 +81,22 @@ public class MaximumIndexProduct {
 
         return max;
     }
-	
-	public static void main(String[] args) throws Exception {
-		
-		String file = "/home/hirak/debasis_da/data/input00.txt";
-		BufferedReader reader = new BufferedReader(new FileReader(file));
-		//BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
-		int n = Integer.parseInt(reader.readLine());
-		int a[] = new int[n];
-		
-		StringTokenizer tokens = new StringTokenizer(reader.readLine());
-		for(int i = 0; i < n; i++) {
-			a[i] = Integer.parseInt(tokens.nextToken());
-		}
-		
-		// result
-		System.out.println(solve(a));
-		
-		reader.close();
-	}
+    
+    public static void main(String[] args) throws Exception {
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        
+        int n = Integer.parseInt(reader.readLine());
+        int a[] = new int[n];
+        
+        StringTokenizer tokens = new StringTokenizer(reader.readLine());
+        for(int i = 0; i < n; i++) {
+            a[i] = Integer.parseInt(tokens.nextToken());
+        }
+        
+        // result
+        System.out.println(solve(a));
+        
+        reader.close();
+    }
 }
